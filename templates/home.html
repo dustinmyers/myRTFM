@@ -6,17 +6,21 @@
     <span flex></span>
         <a ng-href='#/home' layout-margin>Home</a>
         <a ng-href='#/threads' layout-margin>Threads</a>
+        <a ng-href='#/login' layout-margin>Logout</a>
     </div>
 </md-toolbar>
 
 
-<div class="homeContainer" layout-align='center' flex>
-	<md-whiteframe class="md-whiteframe-z1" layout layout-align="center center">
-		<h1 class="md-display-1">The forum where you can talk about... well, anything!</h1>
-	<md-input-container class='md-accent' flex>
-        <label>Search Forums</label>
-        <input ng-model="filter" type='text'>
-    </md-input-container>
-
+<div class="loginContainer" layout-align='center' flex>
+	<md-whiteframe class="md-whiteframe-z1" layout='column' layout-padding layout-align="center center">
+		<form layout-padding layout="column" layout='center' layout-margin>
+		<h1 class="md-display-1">What do you want to talk about today?</h1>
+			<md-input-container class='md-accent' flex>
+		        <label>Search Forums</label>
+		        <input type='text' ng-model="homeThreadsSearch">
+		    </md-input-container>
+		    <md-button ng-click='searchThreads(homeThreadsSearch)' >Search</md-button>
+	    </form>
+	    <!-- <h3  class="md-headline">Or just head to the forums!</h3> -->
 	</md-whiteframe>
 </div>

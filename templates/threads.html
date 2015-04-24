@@ -7,6 +7,7 @@
 	    <span flex></span>
 	        <a ng-href='#/home' layout-margin>Home</a>
 	        <a ng-href='#/threads' layout-margin>Threads</a>
+	        <a ng-href='#/login' layout-margin>Logout</a>
 	    </div>
 	</md-toolbar>
 	<div class='threadsContainer' layout-align="space-around center" flex>
@@ -17,11 +18,17 @@
 			        	<h3 class="md-toolbar-tools">Add New Thread</h3>
 			      	</md-toolbar>
 			      	<md-content layout-padding>
-			        	<md-input-container flex>
+			        	<md-input-container ng-click="createThread(newThreadName)" flex>
 					        <label>New Thread Title...</label>
 					        <input ng-model="newThreadName" required/>
 					    </md-input-container>
-				        <md-button class="md-raised" ng-click="createThread(newThreadName)" flex>Add Thread</md-button>
+					    <md-button ng-disables='newThreadForm.$invalid' ng-click='createThread(username, newThreadName)' class="md-raised" style="display:none" flex></md-button>
+				        <!-- <md-button class="md-raised"  flex>Add Thread</md-button> -->
+				        <md-input-container class='md-accent' flex>
+					        <label>Search Forums</label>
+					        <input ng-model="newThreadsSearch" type='text'>
+					    </md-input-container>
+					    <button type="submit" style="display:none"></button>
 			      	</md-content>
 			    </form>
 		    </md-sidenav>
@@ -37,7 +44,7 @@
 		<div class='listContainer'>	 -->
 		<md-list layout-margin>
 	        <md-subheader class="md-no-sticky"></md-subheader>
-	        <md-list-item class="md-2-line" ng-repeat="thread in threads">
+	        <md-list-item class="md-2-line" ng-repeat="thread in threads | filter:newThreadsSearch">
 	        	<div class="md-list-item-text">
 	          		<h2>{{thread.title}}</h2>
 	          		<h4>Add usernames</h4>

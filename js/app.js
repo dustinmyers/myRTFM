@@ -8,7 +8,8 @@ var app = angular.module('myRTFM', ['firebase', 'ngRoute', 'ngMaterial']);
 				controller: 'loginCtrl'
 			})
 			.when('/home', {
-				templateUrl: 'templates/home.html'
+				templateUrl: 'templates/home.html',
+				controller: 'homeCtrl'
 			})
 			.when('/threads', {
 				templateUrl: 'templates/threads.html',
@@ -24,16 +25,16 @@ var app = angular.module('myRTFM', ['firebase', 'ngRoute', 'ngMaterial']);
 				resolve: {
 					threadRef: function(threadService, $route) {
 						return threadService.getThread($route.current.params.threadId);
+					},
+					commentsRef: function(threadService, $route) {
+						return threadService.getComments($route.current.params.threadId);
 					}
-				},
-				commentsRef: function(threadService, $route) {
-					return threadService.getComments($route.current.params.threadId);
 				}
 			})
 			.otherwise({redirectTo:'/login'});
 
 	    $mdThemingProvider.theme('default')
-	      	.primaryPalette('blue-grey')
+	      	.primaryPalette('teal')
 	      	.accentPalette('blue');
 
 	});
