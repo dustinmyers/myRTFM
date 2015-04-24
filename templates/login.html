@@ -1,0 +1,25 @@
+<div class='loginContainer'>
+	<md-toolbar md-scroll-shrink>
+	    <div class="md-toolbar-tools">
+	    	<h3>
+	        	<span>Welcome to My Firebase Forum!</span>
+	      	</h3>
+	    <span flex></span>
+	    </div>
+	</md-toolbar>
+	<form>
+	    <md-whiteframe class="md-whiteframe-z1" layout layout-align="center center">
+			<md-content  layout-padding layout='row' layout-align-md='column' layout-align-sm='column'>
+			    <md-input-container layout-margin>
+			      	<label>Username</label>
+			    	<input ng-model="username">
+			    </md-input-container>
+			    <md-input-container layout-margin>
+			     	<label>Password</label>
+			      	<input ng-model='password'>
+			    </md-input-container>
+			</md-content>
+			<md-button ng-click='$logMeIn()' class="md-raised">Login</md-button>
+	    </md-whiteframe>
+	</form>	
+</div>

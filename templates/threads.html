@@ -1,0 +1,52 @@
+<div>
+	<md-toolbar md-scroll-shrink>
+	    <div class="md-toolbar-tools">
+	    	<h3>
+	        	<span>My Firebase Forum</span>
+	      	</h3>
+	    <span flex></span>
+	        <a ng-href='#/home' layout-margin>Home</a>
+	        <a ng-href='#/threads' layout-margin>Threads</a>
+	    </div>
+	</md-toolbar>
+	<div class='threadsContainer' layout-align="space-around center" flex>
+		<section layout="row" flex >
+			<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" >
+				<form name='newThreadForm' class='newThreadForm'>
+			      	<md-toolbar class="md-theme-secondary">
+			        	<h3 class="md-toolbar-tools">Add New Thread</h3>
+			      	</md-toolbar>
+			      	<md-content layout-padding>
+			        	<md-input-container flex>
+					        <label>New Thread Title...</label>
+					        <input ng-model="newThreadName" required/>
+					    </md-input-container>
+				        <md-button class="md-raised" ng-click="createThread(newThreadName)" flex>Add Thread</md-button>
+			      	</md-content>
+			    </form>
+		    </md-sidenav>
+		    <div class='divider'></div>
+
+		<!-- <form name='newThreadForm' flex layout='row' class='newThreadForm'>
+			<md-input-container flex>
+		        <label>New Thread Title...</label>
+		        <input ng-model="newThreadTitle" required/>
+		    </md-input-container>
+		    	<md-button ng-disables='newThreadForm.$invalid' ng-click='createThread(username, newThreadName' class="md-raised" flex>Add Thread</md-button>
+		</form>
+		<div class='listContainer'>	 -->
+		<md-list layout-margin>
+	        <md-subheader class="md-no-sticky"></md-subheader>
+	        <md-list-item class="md-2-line" ng-repeat="thread in threads">
+	        	<div class="md-list-item-text">
+	          		<h2>{{thread.title}}</h2>
+	          		<h4>Add usernames</h4>
+	        	</div>
+	      	<md-divider ></md-divider>
+	      	</md-list-item>
+	    </md-list>
+		</div>
+		</section>
+	</div>
+
+</div>

@@ -1,0 +1,41 @@
+<md-toolbar md-scroll-shrink>
+    <div class="md-toolbar-tools">
+    	<h3>
+        	<span>My Firebase Chat</span>
+      	</h3>
+    <span flex></span>
+        <a ng-href='#/home' layout-margin>Home</a>
+        <a ng-href='#/threads' layout-margin>Threads</a>
+    </div>
+</md-toolbar>
+
+
+
+<section layout="row" flex >
+	<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" >
+		<form name='newThreadForm' class='newThreadForm'>
+	      <!-- 	<md-toolbar class="md-theme-secondary">
+	        	<h3 class="md-toolbar-tools">{{ thread.title }}</h3>
+	      	</md-toolbar> -->
+	      	<md-content layout-padding>
+	        	<md-input-container flex>
+			        <label>Write a comment...</label>
+			        <input ng-model="newCommentText" required/>
+			    </md-input-container>
+		        <md-button class="md-raised" ng-click="createComment(newCommentText)" flex>Add Comment</md-button>
+	      	</md-content>
+	    </form>
+    </md-sidenav>
+	<div class='divider'></div>
+		<md-list layout-margin>
+	        <md-subheader class="md-no-sticky">{{ thread.title }} by: {{  }}</md-subheader>
+	        <md-list-item class="md-2-line" ng-repeat="comment in comments">
+	        	<div class="md-list-item-text">
+	          		<h2>{{comment.text}}</h2>
+	          		<h4>{{ comment.username }}</h4>
+	        	</div>
+	      	<md-divider ></md-divider>
+	      	</md-list-item>
+	    </md-list>
+	</div>
+</section>
